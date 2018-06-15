@@ -294,6 +294,14 @@
     <Content Include="Content\bootstrap.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Images\car.jpg" />
+    <Content Include="Content\Images\d1.jpg" />
+    <Content Include="Content\Images\d2.jpg" />
+    <Content Include="Content\Images\d3.jpg" />
+    <Content Include="Content\Images\d4.jpg" />
+    <Content Include="Content\Images\d5.jpg" />
+    <Content Include="Content\Images\d6.jpg" />
+    <Content Include="Content\Images\d8.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -398,7 +406,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
