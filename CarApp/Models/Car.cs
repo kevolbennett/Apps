@@ -25,7 +25,6 @@ namespace CarApp.Models
         public decimal price { get; set; }
         public Nullable<int> year { get; set; }
     
-        public virtual Make Make1 { get; set; }
-        public virtual Model Model1 { get; set; }
+        public virtual Line Line { get; set; }
     }
 }

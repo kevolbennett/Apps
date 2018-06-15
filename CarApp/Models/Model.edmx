@@ -20,19 +20,20 @@
           <Property Name="price" Type="money" Nullable="false" />
           <Property Name="year" Type="int" />
         </EntityType>
+        <EntityType Name="Line">
+          <Key>
+            <PropertyRef Name="Make" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="Make" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="Make">
           <Key>
             <PropertyRef Name="Make" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Make" Type="nvarchar" MaxLength="20" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Model">
-          <Key>
-            <PropertyRef Name="Model" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Model" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -50,26 +51,16 @@
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="role" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_Car_Make">
-          <End Role="Make" Type="Self.Make" Multiplicity="1" />
+        <Association Name="FK_Car_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
           <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Make">
+            <Principal Role="Line">
               <PropertyRef Name="Make" />
-            </Principal>
-            <Dependent Role="Car">
-              <PropertyRef Name="make" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Car_Model">
-          <End Role="Model" Type="Self.Model" Multiplicity="1" />
-          <End Role="Car" Type="Self.Car" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Model">
               <PropertyRef Name="Model" />
             </Principal>
             <Dependent Role="Car">
+              <PropertyRef Name="make" />
               <PropertyRef Name="model" />
             </Dependent>
           </ReferentialConstraint>
@@ -88,16 +79,12 @@
         </Association>
         <EntityContainer Name="PostalKingModelStoreContainer">
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Line" EntityType="Self.Line" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Make" EntityType="Self.Make" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Car_Make" Association="Self.FK_Car_Make">
-            <End Role="Make" EntitySet="Make" />
-            <End Role="Car" EntitySet="Car" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Car_Model" Association="Self.FK_Car_Model">
-            <End Role="Model" EntitySet="Model" />
+          <AssociationSet Name="FK_Car_Line" Association="Self.FK_Car_Line">
+            <End Role="Line" EntitySet="Line" />
             <End Role="Car" EntitySet="Car" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
@@ -124,8 +111,16 @@
           <Property Name="colour" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="year" Type="Int32" />
-          <NavigationProperty Name="Make1" Relationship="Self.FK_Car_Make" FromRole="Car" ToRole="Make" />
-          <NavigationProperty Name="Model1" Relationship="Self.FK_Car_Model" FromRole="Car" ToRole="Model" />
+          <NavigationProperty Name="Line" Relationship="Self.FK_Car_Line" FromRole="Car" ToRole="Line" />
+        </EntityType>
+        <EntityType Name="Line">
+          <Key>
+            <PropertyRef Name="Make" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="Make" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Car_Line" FromRole="Line" ToRole="Car" />
         </EntityType>
         <EntityType Name="Make">
           <Key>
@@ -133,15 +128,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Make1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK_Car_Make" FromRole="Make" ToRole="Car" />
-        </EntityType>
-        <EntityType Name="Model">
-          <Key>
-            <PropertyRef Name="Model1" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Model1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK_Car_Model" FromRole="Model" ToRole="Car" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -161,26 +147,16 @@
           <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Role1" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
-        <Association Name="FK_Car_Make">
-          <End Role="Make" Type="Self.Make" Multiplicity="1" />
+        <Association Name="FK_Car_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
           <End Role="Car" Type="Self.Car" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Make">
-              <PropertyRef Name="Make1" />
+            <Principal Role="Line">
+              <PropertyRef Name="Make" />
+              <PropertyRef Name="Model" />
             </Principal>
             <Dependent Role="Car">
               <PropertyRef Name="make" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Car_Model">
-          <End Role="Model" Type="Self.Model" Multiplicity="1" />
-          <End Role="Car" Type="Self.Car" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Model">
-              <PropertyRef Name="Model1" />
-            </Principal>
-            <Dependent Role="Car">
               <PropertyRef Name="model" />
             </Dependent>
           </ReferentialConstraint>
@@ -199,16 +175,12 @@
         </Association>
         <EntityContainer Name="PostalKingEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="Lines" EntityType="Self.Line" />
           <EntitySet Name="Makes" EntityType="Self.Make" />
-          <EntitySet Name="Models" EntityType="Self.Model" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK_Car_Make" Association="Self.FK_Car_Make">
-            <End Role="Make" EntitySet="Makes" />
-            <End Role="Car" EntitySet="Cars" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Car_Model" Association="Self.FK_Car_Model">
-            <End Role="Model" EntitySet="Models" />
+          <AssociationSet Name="FK_Car_Line" Association="Self.FK_Car_Line">
+            <End Role="Line" EntitySet="Lines" />
             <End Role="Car" EntitySet="Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
@@ -238,19 +210,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Lines">
+            <EntityTypeMapping TypeName="PostalKingModel.Line">
+              <MappingFragment StoreEntitySet="Line">
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Makes">
             <EntityTypeMapping TypeName="PostalKingModel.Make">
               <MappingFragment StoreEntitySet="Make">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Make1" ColumnName="Make" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Models">
-            <EntityTypeMapping TypeName="PostalKingModel.Model">
-              <MappingFragment StoreEntitySet="Model">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Model1" ColumnName="Model" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

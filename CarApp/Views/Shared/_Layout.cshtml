@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+   
 
 </head>
 <body>
@@ -19,26 +19,54 @@
                 </button>
                 @Html.ActionLink("Cadenza80", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div class="navbar-collapse collapse pull-right">
+                <ul class="nav navbar-nav text-right">
+                    <li id="Home">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li id="Cars">@Html.ActionLink("Cars", "Index", "Cars")</li>
+                    <li id="Make">@Html.ActionLink("Brand", "Index", "Make")</li>
+                    <li id="Model">@Html.ActionLink("Model", "Index", "Model")</li>
+                    <li id="About">@Html.ActionLink("About", "About", "Home")</li>
+                    <li id="Contact">@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @*@Html.Partial("_LoginPartial")*@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+
+    <div class="container body-content" >
+
+
         @RenderBody()
-        <hr />
-        <footer class="text-center">
-            <p>Cadenza80 &copy; @DateTime.Now.Year  </p>
-        </footer>
+
     </div>
-   
+    <hr />
+    <footer class="text-center">
+        <p>&copy; @DateTime.Now.Year Cadenza80 </p>
+    </footer>
+    @Scripts.Render("~/Scripts/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+
+        $(document).ready(function () {
+
+            
+
+            var url = window.location.href;
+            var patt = new RegExp(/cars|make|model|about|contact/i);
+
+            var res = patt.exec(url);            
+           
+            $("#"+res).addClass("active");
+
+        });
+
+
+
+
+
+    </script>
+
 </body>
 </html>

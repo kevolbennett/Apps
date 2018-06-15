@@ -26,8 +26,8 @@ namespace CarApp.Models
         }
     
         public virtual DbSet<Car> Cars { get; set; }
+        public virtual DbSet<Line> Lines { get; set; }
         public virtual DbSet<Make> Makes { get; set; }
-        public virtual DbSet<Model> Models { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
