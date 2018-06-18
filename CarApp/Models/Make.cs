@@ -14,7 +14,16 @@ namespace CarApp.Models
     
     public partial class Make
     {
-        public int Id { get; set; }
-        public string Make1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Make()
+        {
+            this.Cars = new HashSet<Car>();
+        }
+    
+        public long Id { get; set; }
+        public string make1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Car> Cars { get; set; }
     }
 }

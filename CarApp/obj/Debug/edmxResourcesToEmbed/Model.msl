@@ -17,19 +17,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Makes">
-      <EntityTypeMapping TypeName="PostalKingModel.Make">
-        <MappingFragment StoreEntitySet="Make">
+    <EntitySetMapping Name="Lines">
+      <EntityTypeMapping TypeName="PostalKingModel.Line">
+        <MappingFragment StoreEntitySet="Line">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="make1" ColumnName="make" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Models">
-      <EntityTypeMapping TypeName="PostalKingModel.Model">
-        <MappingFragment StoreEntitySet="Model">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="model1" ColumnName="model" />
+          <ScalarProperty Name="make" ColumnName="make" />
+          <ScalarProperty Name="model" ColumnName="model" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

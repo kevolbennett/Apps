@@ -1,7 +1,9 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    color: #532323;
 }
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -36,8 +38,6 @@ textarea {
     background-color: #dd2929;
 }
 
-
-
 #landing-chevron {
     margin: 1em;
     font-size: 3em;
@@ -52,3 +52,9 @@ textarea {
 #landing-chevron a:hover {
     color: lightgrey;
 }
+
+.navbar-inverse {
+    background-color: #b12222;
+    border-color: #b12222;
+}
+

@@ -160,8 +160,8 @@ C:\Users\Kevol\source\repos\CarApp\CarApp\bin\Microsoft.AI.DependencyCollector.x
 C:\Users\Kevol\source\repos\CarApp\CarApp\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Kevol\source\repos\CarApp\CarApp\bin\Microsoft.AI.Web.xml
 C:\Users\Kevol\source\repos\CarApp\CarApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Kevol\source\repos\CarApp\CarApp\obj\Debug\CarApp.csprojAssemblyReference.cache
 C:\Users\Kevol\source\repos\CarApp\CarApp\obj\Debug\CarApp.csproj.CoreCompileInputs.cache
 C:\Users\Kevol\source\repos\CarApp\CarApp\obj\Debug\CarApp.csproj.CopyComplete
 C:\Users\Kevol\source\repos\CarApp\CarApp\obj\Debug\CarApp.dll
 C:\Users\Kevol\source\repos\CarApp\CarApp\obj\Debug\CarApp.pdb
+C:\Users\Kevol\source\repos\CarApp\CarApp\obj\Debug\CarApp.csprojAssemblyReference.cache

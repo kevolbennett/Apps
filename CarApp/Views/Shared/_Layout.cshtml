@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -22,8 +22,8 @@
             <div class="navbar-collapse collapse pull-right">
                 <ul class="nav navbar-nav text-right">
                     <li id="Home">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li id="Cars">@Html.ActionLink("Cars", "Index", "Cars")</li>
-                    <li id="Make">@Html.ActionLink("Brand", "Index", "Make")</li>
+                    <li id="Car">@Html.ActionLink("Cars", "Index", "Car")</li>
+                    <li id="Make">@Html.ActionLink("Make", "Index", "Make")</li>
                     <li id="Model">@Html.ActionLink("Model", "Index", "Model")</li>
                     <li id="About">@Html.ActionLink("About", "About", "Home")</li>
                     <li id="Contact">@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -41,7 +41,10 @@
     </div>
     <hr />
     <footer class="text-center">
-        <p>&copy; @DateTime.Now.Year Cadenza80 </p>
+        <div class="row">
+            <div class="col-lg-6 text-right"><p> &copy; @DateTime.Now.Year Cadenza80 </p></div>
+            <div class="col-lg-6 text-left"><span><a class="fa fa-lg fa-facebook" href="#"></a> <a class="fa fa-lg fa-twitter" href="#"></a> <a class="fa fa-lg fa-linkedin" href="#"></a></span></div>
+        </div>
     </footer>
     @Scripts.Render("~/Scripts/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -54,7 +57,7 @@
             
 
             var url = window.location.href;
-            var patt = new RegExp(/cars|make|model|about|contact/i);
+            var patt = new RegExp(/car|make|model|about|contact/i);
 
             var res = patt.exec(url);            
            

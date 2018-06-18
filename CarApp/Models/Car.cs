@@ -16,15 +16,16 @@ namespace CarApp.Models
     {
         public long Id { get; set; }
         public string vinNumber { get; set; }
-        public string make { get; set; }
-        public string model { get; set; }
+        public long make { get; set; }
+        public long model { get; set; }
         public string engineType { get; set; }
         public string source { get; set; }
         public System.DateTime arrivalDate { get; set; }
         public string colour { get; set; }
         public decimal price { get; set; }
-        public Nullable<int> year { get; set; }
+        public string year { get; set; }
     
-        public virtual Line Line { get; set; }
+        public virtual Make Make1 { get; set; }
+        public virtual Model Model1 { get; set; }
     }
 }
