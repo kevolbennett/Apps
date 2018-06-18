@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top bg-success">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -19,26 +19,57 @@
                 </button>
                 @Html.ActionLink("Cadenza80", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div class="navbar-collapse collapse pull-right">
+                <ul class="nav navbar-nav text-right">
+                    <li id="Home">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li id="Car">@Html.ActionLink("Cars", "Index", "Car")</li>
+                    <li id="Make">@Html.ActionLink("Make", "Index", "Make")</li>
+                    <li id="Model">@Html.ActionLink("Model", "Index", "Model")</li>
+                    <li id="About">@Html.ActionLink("About", "About", "Home")</li>
+                    <li id="Contact">@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @*@Html.Partial("_LoginPartial")*@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year  Cadenza80</p>
-        </footer>
-    </div>
 
+    <div class="container body-content" >
+
+
+        @RenderBody()
+
+    </div>
+    <hr />
+    <footer class="text-center">
+        <div class="row">
+            <div class="col-lg-6 text-right"><p> &copy; @DateTime.Now.Year Cadenza80 </p></div>
+            <div class="col-lg-6 text-left"><span><a class="fa fa-lg fa-facebook" href="#"></a> <a class="fa fa-lg fa-twitter" href="#"></a> <a class="fa fa-lg fa-linkedin" href="#"></a></span></div>
+        </div>
+    </footer>
+    @Scripts.Render("~/Scripts/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+
+        $(document).ready(function () {
+
+            
+
+            var url = window.location.href;
+            var patt = new RegExp(/car|make|model|about|contact/i);
+
+            var res = patt.exec(url);            
+           
+            $("#"+res).addClass("active");
+
+        });
+
+
+
+
+
+    </script>
+
 </body>
 </html>

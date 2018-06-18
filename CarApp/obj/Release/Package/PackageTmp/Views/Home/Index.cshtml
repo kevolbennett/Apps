@@ -1,22 +1,75 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LandingLayout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>Cadenza80</h1>
-    <p class="lead">A Copendium of C# Web Framework Technologies For Building Great Web sites and Web applications </p>   
+<div class="row">
+    <div id="carouselExampleSlidesOnly" class="carousel slide mt-1" data-ride="carousel" data-interval="">
+        <div class="carousel-inner">
+            <div class="item active">
+                <img class="landing-carousel" src="~/Content/Images/d4.jpg" alt="First slide">
+                <div class="carousel-caption">
+                    <h1 class="hidden-xs">Cadenza80</h1>
+                    <p class="lead hidden-xs">
+                        A Copendium of C# Web Framework Technologies For Building Great Web sites and Web applications
+                    </p>
+                    <p class=" visible-xs small">
+                        A Copendium of C# Web Framework Technologies For Building Great Web sites and Web applications
+                    </p>
+                    <a href="#" class="btn btn-lg btn-danger hidden-xs">GET STARTED</a>
+
+                    <a href="#" class="btn btn-sm btn-danger visible-xs small">GET STARTED</a>
+
+                    <div id="landing-chevron" class="hidden-sm hidden-xs">
+                        <a href="#more-content">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="landing-carousel" src="~/Content/Images/d6.jpg" alt="Second slide">
+                <div class="carousel-caption ">
+                    <p class="lead">
+                        The Unexamined Life is not Worth Living <br /><b>-Socrates-</b><br />
+                    </p>
+                    <a href="#" class="btn btn-lg btn-success">Learn More</a>
+                    <div id="landing-chevron" class="hidden-sm hidden-xs">
+                        <a href="#more-content">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="landing-carousel" src="~/Content/Images/d8.jpg" alt="Third slide">
+
+            </div>
+            
+        </div>
+        <a class="left carousel-control" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+            <span class="icon-prev" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+            <span class="icon-next" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    
 </div>
 
-<div class="row">
-    <div class="col-md-4 text-success">
-        <h2>Get started</h2>
-        <p>
-            The unexamined life is not worth living. <br /><b>-Socrates-</b><br />
-            Navigate to view Kevol's First MVC deployed Application
-        </p>
-        <p><a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301865">View CarApp &raquo;</a></p>
-    </div>
+<div id="more-content" class="container" style="margin-top:2em">
     <div class="col-md-4">
+        <img src="~/Content/Images/car.jpg" class="thumbnail img-responsive"/>
+        <h2>Get started</h2>
+        <p>            
+            Navigate to view Kevol's First ASP.NET MVC5 deployed Application
+        </p>
+        @Html.ActionLink("View CarApp", "Index","Car", null, new { @class = "btn btn-lg btn-primary"});
+        
+    </div>
+    @*<div class="col-md-4">
         <h2>Get more libraries</h2>
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
@@ -25,5 +78,5 @@
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    </div>*@
 </div>
